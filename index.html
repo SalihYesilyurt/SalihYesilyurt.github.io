@@ -50,5 +50,25 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+<script>
+  const toggle = document.getElementById('themeToggle');
+
+  // Kullanıcının daha önceki seçimi varsa onu yükle
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    toggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+  }
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'light' ? 'dark' : 'light';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    toggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+  });
+</script>
 </body>
 </html>
