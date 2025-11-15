@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+
+
   <header class="site-header">
     <h1>Blog</h1>
     <p>Yazılarım</p>
@@ -25,6 +28,25 @@
     </section>
 
   </main>
+<script>
+  const toggle = document.getElementById('themeToggle');
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    toggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+  }
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'light' ? 'dark' : 'light';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    toggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+  });
+</script>
 
 </body>
 </html>
