@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prensip Doğrulayıcıları</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Erdem Salih Yeşilyurt</h1>
+    <p>Projeler & İletişim</p>
+  </header>
+
+  <main class="container">
+    <!-- Projeler -->
+    <section id="projects">
+      <h2>Projelerim</h2>
+
+      
+
+    </section>
+
+    <!-- Mesaj gönderme formu -->
+    <section id="contact">
+      <h2>Bana Mesaj Gönder</h2>
+
+      <form id="contactForm" action="https://formspree.io/f/xvgdkyon" method="POST">
+        <label for="name">Adın</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="message">Mesajın</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <!-- spam önlemi -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit">Gönder</button>
+      </form>
+
+      <p class="note">Mesajlar sadece bana görünür.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Erdem Salih Yeşilyurt</p>
+  </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
