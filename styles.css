@@ -48,6 +48,25 @@ body {
   font-size: 2rem;
 }
 
+/* CSS */
+.transparent-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.7); /* Beyaz şeffaf sınır */
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.transparent-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Hoverda hafif dolu görünüm */
+  border-color: white;
+}
+
+
 /* ---------- Kartlar ---------- */
 .project-card {
   background: var(--card);
