@@ -7,6 +7,7 @@
   --text: #e6eef8;
   --accent: #7dd3fc;
   --border: rgba(255,255,255,0.06);
+  --btn-hover-bg: rgba(255,255,255,0.1);
 }
 
 /* Light theme */
@@ -16,6 +17,7 @@
   --text: #111;
   --accent: #0077ff;
   --border: rgba(0,0,0,0.12);
+  --btn-hover-bg: rgba(0,0,0,0.1);
 }
 
 /* ---------- GENEL ---------- */
@@ -53,9 +55,9 @@ body {
   display: inline-block;
   padding: 16px 32px;
   font-size: 24px;
-  border: 2px solid rgba(255, 255, 255, 0.7); /* Beyaz şeffaf sınır */
+  border: 2px solid var(--text); /* Beyaz şeffaf sınır */
   background-color: transparent;
-  color: white;
+  color: var(--text);
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -63,8 +65,8 @@ body {
 }
 
 .transparent-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Hoverda hafif dolu görünüm */
-  border-color: white;
+  background-color: var(--btn-hover-bg); /* Hoverda hafif dolu görünüm */
+  border-color: var(--text);
 }
 
 
