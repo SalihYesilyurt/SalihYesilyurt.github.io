@@ -118,6 +118,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
 <script>
 const canvas = document.getElementById("drawCanvas");
 const ctx = canvas.getContext("2d");
+const root = getComputedStyle(document.documentElement);
+const drawColor = root.getPropertyValue("--btn-hover-bg").trim();
 
 function resize() {
   canvas.width = window.innerWidth;
@@ -143,7 +145,7 @@ window.addEventListener("mouseup", () => drawing = false);
 window.addEventListener("mousemove", (e) => {
   if (!drawing) return;
 
-  ctx.strokeStyle = "rgba(255,255,255,0.25)"; // Çok hafif çizgi (renk ayarlanabilir)
+  ctx.strokeStyle = drawColor; // Çok hafif çizgi (renk ayarlanabilir)
   ctx.lineWidth = 3;
   ctx.lineCap = "round";
 
