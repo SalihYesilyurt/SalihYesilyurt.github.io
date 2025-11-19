@@ -160,7 +160,23 @@ window.addEventListener("mousemove", (e) => {
 
 // Fading efekti (her frame çok hafif karartıyoruz)
 function fade() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; // Opaklığı artırırsan daha hızlı silinir
+  const styles = getComputedStyle(document.documentElement);
+  const bg = styles.getPropertyValue("--bg").trim();
+
+  let fadeColor;
+
+  if (bg.startsWith("#")) {
+    // hex → rgba
+    const r = parseInt(bg.slice(1, 3), 16);
+    const g = parseInt(bg.slice(3, 5), 16);
+    const b = parseInt(bg.slice(5, 7), 16);
+    fadeColor = `rgba(${r}, ${g}, ${b}, 0.03)`; // yavaş kaybolma
+  } else {
+    // rgb(...) → rgba(...)
+    fadeColor = bg.replace(")", ", 0.03)").replace("rgb", "rgba");
+  }
+
+  ctx.fillStyle = fadeColor;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   requestAnimationFrame(fade);
 }
